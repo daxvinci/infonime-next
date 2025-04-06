@@ -22,7 +22,7 @@ const Card = ({data}:Details) => {
             <div className="img-container h-full overflow-hidden hover:opacity-60 flex-shrink-0 w-[150px]">
                 <motion.img 
                 className="object-cover w-full h-full" 
-                src={details.posterImage?.small || 'https://via.placeholder.com/150'} 
+                src={details.posterImage?.small || "https://kitsu.io/images/default_cover-22e5f56b17aeced6dc7f69c8d422a1ab.png"} 
                 alt="poster image Unavailable"
                 whileHover={{ scale: 1.2 }} 
                 transition={{ duration: 0.5 }} 

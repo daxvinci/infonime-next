@@ -79,7 +79,9 @@ const Home = () => {
             },
             params:{
               'page[limit]':limit,
-              'page[offset]':offset
+              'page[offset]':offset,
+              "sort": "-createdAt",
+              "filter[status]":"current"
             },
             timeout:50000,
           })
