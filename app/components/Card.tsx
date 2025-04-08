@@ -31,7 +31,7 @@ const Card = ({data}:Details) => {
             </Link>
             <div className="details text-xs flex flex-col gap-1 w-full">
                 <Link href={`/details/${id}`}>
-                    <div className={`anime-name text-base ${darkmode ? 'text-white/90':'text-black/60'}`}><strong>{details.slug}</strong></div>
+                    <div className={`anime-name text-base ${darkmode ? 'text-white/90':'text-black/60'}`}><strong>{details.titles?.en || details.slug}</strong></div>
                 </Link>
                 <div className="synopsis w-full mt-2 text-gray-500">
                         {details.synopsis

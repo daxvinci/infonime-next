@@ -23,7 +23,7 @@ const Popular = () => {
     const [error,setError] = useState<object | string | undefined >()
     
     const [currentPage,setCurrentPage] = useState(1)
-    const {darkmode,loading,setLoading=()=>{}} = useThemeContext()
+    const {darkmode,loading,setLoading=()=>{},searchValue} = useThemeContext()
 
     const pageType = "popularPersist"
     
@@ -63,7 +63,8 @@ const Popular = () => {
               params:{
                 'sort':'popularityRank',
                 'page[limit]':limit,
-                'page[offset]':offset
+                'page[offset]':offset,
+                "filter[text]":searchValue?.trim() || ''
               }
             })
           const data = response.data.data
@@ -88,7 +89,7 @@ const Popular = () => {
       }
       
         animeFetch(limit,offset)
-      },[limit,offset,base_url,setLoading])
+      },[limit,offset,base_url,setLoading,searchValue])
 
 
     if (loading) return <div className={`${darkmode ? 'bg-gray-800 text-amber-50': 'bg-[#f9f9f9] text-gray-700'}`}>

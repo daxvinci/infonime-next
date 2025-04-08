@@ -67,7 +67,7 @@ export type AnimeDetails = {
     imageUrl: string;
     slug: string;
     synopsis: string;
-    title?: {
+    titles?: {
         en?:string;
         en_jp?:string;
         ja_jp?:string;
@@ -108,6 +108,8 @@ export type Bool = {
   setLoading?: React.Dispatch<React.SetStateAction<boolean>>;
   setDarkMode?: React.Dispatch<React.SetStateAction<boolean>>;
   darkmode?:boolean;
+  searchValue?:string;
+  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
   limit?:number;
 }
 

@@ -108,7 +108,7 @@ const Genre = () => {
                                   {/* Image Container */}
                                   <div className=" w-full h-40 opacity-40 hover:opacity-75 flex-shrink-0">
                                     <motion.img
-                                      src={genre?.animeImageUrl || 'https://via.placeholder.com/150'} // Fallback image if no image is provided
+                                      src={genre?.animeImageUrl ||  "https://kitsu.io/images/default_cover-22e5f56b17aeced6dc7f69c8d422a1ab.png"} // Fallback image if no image is provided
                                       alt={genre?.attributes?.slug || 'Image not available'}
                                       className="w-full h-full object-cover"
                                       whileHover={{ scale: 1.2 }} 

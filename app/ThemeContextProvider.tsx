@@ -12,9 +12,10 @@ type ThemeContextProps = {
 export const ThemeContextProvider = ({children}:ThemeContextProps) => {
     const [darkmode,setDarkMode] = useState<boolean>(true)
     const [loading,setLoading] = useState<boolean>(true)
+    const [searchValue, setSearchValue] = useState<string>('')
 
 
-    return <ThemeContext.Provider value={{darkmode,setDarkMode,loading,setLoading}}>{children}</ThemeContext.Provider>
+    return <ThemeContext.Provider value={{darkmode,setDarkMode,loading,setLoading,searchValue, setSearchValue}}>{children}</ThemeContext.Provider>
 }
 
 

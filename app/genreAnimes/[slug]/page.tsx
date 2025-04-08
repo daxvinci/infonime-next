@@ -1,6 +1,6 @@
 "use client"
 
-import { Count, Data, Ogdata,DetailsProps } from "../../lib/types";
+import { Count, Data, Ogdata } from "../../lib/types";
 
 import { useEffect, useState,use } from 'react';
 import axios from 'axios';
@@ -9,6 +9,7 @@ import Card from "../../components/Card";
 import Pagination from "../../components/Pagination";
 import { useThemeContext } from "../../ThemeContext";
 // import { useParams } from "next/navigation";
+
 
 const GenreAnimes =  ({params}:{params: Promise<{ slug: string }>}) => {
   const base_url = process.env.NEXT_PUBLIC_BASE_URL;
@@ -22,6 +23,8 @@ const GenreAnimes =  ({params}:{params: Promise<{ slug: string }>}) => {
   const [offset, setOffset] = useState<number>(0);
   const [totalAnimes, setTotalAnimes] = useState<Count>();
   const [filteredGenre, setFilteredGenre] = useState<Data[]>([]);
+
+  console.log(slug)
 
   useEffect(() => {
     const savedOffset = localStorage.getItem(pageType);

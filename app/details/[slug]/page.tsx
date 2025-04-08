@@ -61,7 +61,6 @@ const Details =  ({params}:{params: Promise<{ slug: string }>}) => {
     const [error,setError] = useState<object | string | undefined >()
     const {darkmode,loading,setLoading=()=>{}} = useThemeContext()
     
-    
     //Fetching Details
     useEffect(()=>{
       setLoading(true)
@@ -94,7 +93,7 @@ const Details =  ({params}:{params: Promise<{ slug: string }>}) => {
           setLinkData(linkData)
           setGenres(genreData)
           setDetails(data)
-          console.log(linkData)
+          // console.log(linkData)
         }
         catch(err){
           setError('something went wrong ')
@@ -134,7 +133,7 @@ const Details =  ({params}:{params: Promise<{ slug: string }>}) => {
                             <motion.div className="flex-1" variants={imageVariants}>
                                 <img
                                 src={details?.attributes?.posterImage?.original}
-                                alt={details?.attributes?.title?.en || 'image not available'}
+                                alt={details?.attributes?.titles?.en || 'image not available'}
                                 className="w-full h-auto rounded-lg shadow-lg"
                                 />
                             </motion.div>
@@ -161,6 +160,15 @@ const Details =  ({params}:{params: Promise<{ slug: string }>}) => {
                                 </p>
                                 <div className="space-y-2"
                                 >
+                                <p
+
+                                >
+                                    <strong className ={`${darkmode ? 'text-amber-50':'text-black/80'} font-bold`}>Alt Names: </strong> 
+                                    {
+                                    Object.values(details?.attributes?.titles || {})
+                                    .filter(title => title)
+                                    .join(', ')}
+                                </p>
                                 <p
 
                                 >

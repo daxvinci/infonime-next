@@ -7,7 +7,7 @@ import React, { useEffect, useRef, useState } from "react";
 import * as motion from "motion/react-client"
 
 const Navbar = () => {
-        const {darkmode} = useThemeContext()
+        const {darkmode,setSearchValue=()=>{}} = useThemeContext()
         const [isOpen, setIsOpen] = useState<boolean>(false);
         const [isSticky, setIsSticky] = useState<boolean>(false); // State for sticky navbar
         const [prevScrollY, setPrevScrollY] = useState<number>(0);
@@ -19,7 +19,8 @@ const Navbar = () => {
 
         const handleChange =(e:React.SyntheticEvent)=>{
           const {value} = e.target as HTMLInputElement;
-          console.log(value)
+          setSearchValue(value)
+          // console.log(value)
         }
 
           const handlePage =()=>{
@@ -98,6 +99,7 @@ const Navbar = () => {
             name="search"
             placeholder="search..."
             id="search"
+            onChange={(e)=>handleChange(e)}
           />
         </div>
       </div>

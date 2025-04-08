@@ -21,7 +21,7 @@ const Home = () => {
     const [offset,setOffset] = useState<number>(0)
     const [animes,setAnimes] = useState<Data[]>([])
     const [error,setError] = useState<object | string | undefined >()
-    const {darkmode,loading,setLoading=()=>{}} = useThemeContext()
+    const {darkmode,loading,setLoading=()=>{},searchValue} = useThemeContext()
     // const location = useLocation()
     
     const pageType = "homePersist"
@@ -81,7 +81,8 @@ const Home = () => {
               'page[limit]':limit,
               'page[offset]':offset,
               "sort": "-createdAt",
-              "filter[status]":"current"
+            //   "filter[status]":"current",
+              "filter[text]":searchValue?.trim() || ''
             },
             timeout:50000,
           })
@@ -108,7 +109,7 @@ const Home = () => {
 
     
         animeFetch(limit,offset)
-      },[limit,offset,base_url,setLoading])
+      },[limit,offset,base_url,setLoading,searchValue])
     
 
     if (loading) return <div className={`${darkmode ? 'bg-gray-800 text-amber-50': 'bg-[#f9f9f9] text-gray-700'}`}>
