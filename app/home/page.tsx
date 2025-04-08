@@ -120,7 +120,7 @@ const Home = () => {
         <>
         <section className={`p-6 ${darkmode ? 'bg-gray-800 text-amber-50': 'bg-[#f9f9f9] text-gray-700'}`}>
             <div className="contain home">
-                <h2 className="text-2xl font-semibold mb-6">Home</h2>
+                <h2 className="text-2xl font-semibold mb-6">Latest</h2>
                 <div className="main-container py-3">
                     {error ? (
                         <div className="contain">{typeof error === 'object' ? 'object error' : error}</div>
