@@ -113,7 +113,7 @@ const Details =  ({params}:{params: Promise<{ slug: string }>}) => {
     return (
         <>
         <div 
-        className={`p-8 ${darkmode ? 'bg-gray-800 text-amber-50': 'bg-[#f9f9f9] text-gray-700'}`}
+        className={`p-8 min-h-full flex-1 ${darkmode ? 'bg-gray-800 text-amber-50': 'bg-[#f9f9f9] text-gray-700'}`}
         style={{
           backgroundImage: `url(${details?.attributes?.coverImage?.original || "https://kitsu.io/images/default_cover-22e5f56b17aeced6dc7f69c8d422a1ab.png"})`,
           backgroundSize: 'cover',
