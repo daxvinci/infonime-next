@@ -227,7 +227,7 @@ const Details =  ({params}:{params: Promise<{ slug: string }>}) => {
                                         <span>N/A</span>
                                       ) : (
                                         linkData.map((link) => 
-                                        <Link className='text-blue-500' key={link.id} href={`${link?.attributes?.url}`}>
+                                        <Link className='text-blue-500 flex-wrap' key={link.id} href={`${link?.attributes?.url}`}>
                                           {link?.attributes?.url}
                                         </Link> 
                                         )
