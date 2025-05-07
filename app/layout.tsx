@@ -6,7 +6,8 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ThemeContextProvider from "./ThemeContextProvider";
-import Script from "next/script";
+// import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 
 const GA_MEASUREMENT_ID = process.env.GA_MEASUREMENT_ID
@@ -32,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Script
+      {/* <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         strategy="afterInteractive"
@@ -50,7 +51,7 @@ export default function RootLayout({
             });
           `,
         }}
-      />
+      /> */}
 
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col antialiased`}
@@ -61,6 +62,7 @@ export default function RootLayout({
           <Footer />
         </ThemeContextProvider>
       </body>
+      <GoogleAnalytics gaId={`${GA_MEASUREMENT_ID}`} />
     </html>
   );
 }
