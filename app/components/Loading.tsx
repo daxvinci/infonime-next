@@ -1,28 +1,239 @@
 "use client"
 
-import * as motion from "motion/react-client"
-import { useThemeContext } from '../ThemeContext';
-
+import React from "react";
+import styled from "styled-components";
+import { useThemeContext } from "../ThemeContext";
 
 const Loading = () => {
-    const {darkmode} = useThemeContext()
-    
-    return ( 
-        <div className={`${darkmode ? 'bg-black text-amber-50 ': 'bg-[#f9f9f9] text-gray-700'} h-screen fixed inset-0 bg-opacity-50 flex flex-col items-center justify-center`}>
-        {/* Spinner Container */}
-        <motion.div
-          className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full"
-          animate={{ rotate: 360 }}
-          transition={{
-            duration: 1,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-        {/* Loading Text */}
-        <p className="mt-4 text-blue-500">Loading...</p>
-      </div>
-     );
-}
- 
+   const { darkmode } = useThemeContext();
+  return (
+    <div
+      className={`${
+        darkmode ? "bg-black text-amber-50 " : "bg-[#f9f9f9] text-gray-700"
+      } h-screen fixed inset-0 bg-opacity-50 flex flex-col items-center justify-center`}
+    >
+      <StyledWrapper>
+        <div className="loader">
+          <svg width={200} height={200}>
+            <circle
+              className="traco"
+              cx={100}
+              cy={100}
+              r={70}
+              fill="transparent"
+              stroke="#ffe71c"
+              strokeWidth={9}
+              strokeDasharray="35 20"
+              transform="rotate(31 100 100)"
+            />
+          </svg>
+          <div className="p1" />
+          <div className="p2" />
+          <div className="p3" />
+          <div className="p4" />
+          <div className="p5" />
+          <div className="p6" />
+          <div className="p7" />
+          <div className="p8" />
+          <div className="circle">
+            <div className="content">
+              <div className="eyes">
+                <div className="eye-left" />
+                <div className="eye-right" />
+              </div>
+              <div className="nouse" />
+              <div className="mouth" />
+              <div className="teeth">
+                <div className="tooth" />
+                <div className="tooth" />
+                <div className="tooth" />
+                <div className="tooth" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </StyledWrapper>
+    </div>
+  );
+};
+
+const StyledWrapper = styled.div`
+  .loader {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: float 2s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  .loader:before {
+    content: "";
+    width: 10px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    bottom: -9px;
+    animation: shadow046 2s alternate infinite ease;
+  }
+  @keyframes shadow046 {
+    0% {
+      transform: scaleX(1);
+    }
+    40% {
+      transform: scaleX(15);
+      opacity: 0.7;
+    }
+  }
+
+  .circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+  }
+  .loader .p1 {
+    height: 20px;
+    width: 7px;
+    background-color: #ffe71c;
+    position: absolute;
+    margin-top: -118px;
+    margin-left: 3px;
+  }
+  .loader .p2 {
+    height: 20px;
+    width: 7px;
+    background-color: #ffe71c;
+    position: absolute;
+    margin-top: 118px;
+    margin-left: 3px;
+  }
+
+  .loader .p3 {
+    height: 20px;
+    width: 7px;
+    background-color: #ffe71c;
+    position: absolute;
+    transform: rotate(90deg);
+    margin-right: -120px;
+  }
+  .loader .p4 {
+    height: 20px;
+    width: 7px;
+    background-color: #ffe71c;
+    position: absolute;
+    transform: rotate(90deg);
+    margin-right: 119px;
+  }
+  .loader .p5 {
+    height: 25px;
+    width: 7px;
+    background-color: #ffe71c;
+    position: absolute;
+    margin-top: -84px;
+    margin-right: -89px;
+    transform: rotate(45deg);
+  }
+  .loader .p6 {
+    height: 23px;
+    width: 7px;
+    background-color: #ffe71c;
+    position: absolute;
+    margin-top: 88px;
+    margin-right: 84px;
+    transform: rotate(45deg);
+  }
+  .loader .p7 {
+    height: 23px;
+    width: 7px;
+    background-color: #ffe71c;
+    position: absolute;
+    margin-top: -86px;
+    margin-right: 80px;
+    transform: rotate(-45deg);
+  }
+  .loader .p8 {
+    height: 23px;
+    width: 7px;
+    background-color: #ffe71c;
+    position: absolute;
+    margin-top: 80px;
+    margin-right: -83px;
+    transform: rotate(-45deg);
+  }
+  .circle .traco {
+    position: absolute;
+    z-index: -99;
+  }
+  .loader .content {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid #ffe71c;
+    overflow: hidden;
+  }
+  .content .eyes {
+    width: 80px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 18px auto 0px;
+    padding: 3.5px 10px;
+  }
+  .eyes .eye-left {
+    width: 22px;
+    height: 100%;
+    background-color: #ffe71c;
+    border-radius: 50%;
+  }
+  .eyes .eye-right {
+    width: 22px;
+    height: 100%;
+    background-color: #ffe71c;
+    border-radius: 50%;
+  }
+
+  .content .nouse {
+    margin: -4px auto;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: #ffe71c;
+  }
+  .content .mouth {
+    margin: 9px auto 0;
+    height: 3px;
+    width: 100%;
+    background-color: #ffe71c;
+  }
+  .content .teeth {
+    margin: 0 auto;
+    height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+  }
+  .teeth .tooth {
+    height: 100%;
+    width: 4px;
+    background-color: #ffe71c;
+  }
+`;
+
 export default Loading;

@@ -159,6 +159,25 @@ export type DetailsProps = {
   };
 };
 
-// export type SlugId = {
-//   id:string;
-// }
+export type UserDetails = {
+  id: string;
+  name: string;
+  username: string;
+  email: string;
+  password: string;
+  admin: boolean;
+  role: string;
+};
+
+export type Users = UserDetails[];
+
+export type AdminDetails = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  username: string;
+  email: string;
+  password: string;
+  admin: boolean;
+  role: string;
+};
