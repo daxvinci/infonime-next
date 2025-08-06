@@ -3,8 +3,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import ThemeContextProvider from "./ThemeContextProvider";
 // import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -54,12 +52,12 @@ export default function RootLayout({
       /> */}
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
       >
         <ThemeContextProvider>
-          <Navbar />
-          <main className="flex-1 flex">{children}</main>
-          <Footer />
+          
+          <main className="main w-full h-full">{children}</main>
+         
         </ThemeContextProvider>
       </body>
       <GoogleAnalytics gaId={`${GA_MEASUREMENT_ID}`} />

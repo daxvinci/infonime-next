@@ -24,3 +24,19 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.bg-wallpaper {
+  background-image: url('/images/mitsuri-kanroji-3840x2160-23205.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.login-wallpaper {
+  background-image: url('/images/ryou-the-water-3840x2160-23040.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.register-wallpaper {
+  background-image: url('/images/frieren-beyond-5120x2880-22999.jpg');
+  background-size: cover;
+  background-position: center;
+}

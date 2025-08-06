@@ -3,7 +3,7 @@
 
 import { useEffect } from "react";
 import { useThemeContext } from "./ThemeContext";
-import Home from "./home/page";
+import LandingPage from "./landing/page";
 
 export default function Index() {
 
@@ -29,7 +29,7 @@ export default function Index() {
     <>
 
       <div className={`${darkmode ? 'bg-gray-800': 'bg-[#f9f9f9]'}`}>
-        <Home/>
+        <LandingPage/>
       </div>
 
     </>

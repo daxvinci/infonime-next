@@ -74,7 +74,7 @@ const Navbar = () => {
       >
       {/* Logo */}
       <div className="flex justify-between items-center">
-        <Link onClick={handlePage} href="/">
+        <Link onClick={handlePage} href="/home">
           <h2 className="text-3xl">Infonime</h2>
         </Link>
         {/* Hamburger Icon (Mobile Only) */}
