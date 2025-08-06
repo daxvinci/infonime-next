@@ -19,7 +19,7 @@ const LandingPage = () => {
               </p>
               <div className="mt-8 flex justify-between gap-2">
                 <Link href="/login" className="btn btn-primary">
-                sign in
+                  sign in
                   {/* <Button text="Sign In" color="#48C78E" /> */}
                 </Link>
                 <Link href="/home" className="btn btn-primary">
