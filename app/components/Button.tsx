@@ -1,3 +1,6 @@
+"use client"
+
+
 import styled from "styled-components";
 
 const Button = ({text,color}:{text:string,color:string}) => {

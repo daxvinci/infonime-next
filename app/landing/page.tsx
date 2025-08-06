@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Button from "../components/Button";
 // import Button from "../components/Button";
 
 
@@ -19,12 +20,10 @@ const LandingPage = () => {
               </p>
               <div className="mt-8 flex justify-between gap-2">
                 <Link href="/login" className="btn btn-primary">
-                  sign in
-                  {/* <Button text="Sign In" color="#48C78E" /> */}
+                  <Button text="Sign In" color="#48C78E" />
                 </Link>
                 <Link href="/home" className="btn btn-primary">
-                guest
-                  {/* <Button text="Guest" color="#2E6AE1" /> */}
+                  <Button text="Guest" color="#2E6AE1" />
                 </Link>
               </div>
             </div>
