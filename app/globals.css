@@ -26,17 +26,17 @@ body {
 }
 
 .bg-wallpaper {
-  background-image: url('/images/mitsuri-kanroji-3840x2160-23205.jpg');
+  background-image: url('/images/mitsuri-kanroji-3840x2160-23205.webp');
   background-size: cover;
   background-position: center;
 }
 .login-wallpaper {
-  background-image: url('/images/ryou-the-water-3840x2160-23040.jpg');
+  background-image: url('/images/ryou-the-water-3840x2160-23040.webp');
   background-size: cover;
   background-position: center;
 }
 .register-wallpaper {
-  background-image: url('/images/frieren-beyond-5120x2880-22999.jpg');
+  background-image: url('/images/frieren-beyond-5120x2880-22999.webp');
   background-size: cover;
   background-position: center;
 }
