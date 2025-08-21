@@ -31,7 +31,7 @@ const Home = () => {
 
     
     
-      // Handle "Last Page" button click
+    // Handle "Last Page" button click
    const handleLastPage = async () => {
     if (!totalAnimes) {
       console.error('Error maxcount is undefined');

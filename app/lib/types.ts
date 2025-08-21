@@ -103,15 +103,17 @@ export type InsideData = {
         attributes:AnimeDetails
 }
 
-export type Bool = {
+export type ContextType = {
   loading?: boolean;
   setLoading?: React.Dispatch<React.SetStateAction<boolean>>;
   setDarkMode?: React.Dispatch<React.SetStateAction<boolean>>;
-  darkmode?:boolean;
-  searchValue?:string;
+  darkmode?: boolean;
+  searchValue?: string;
   setSearchValue: React.Dispatch<React.SetStateAction<string>>;
-  limit?:number;
-}
+  limit?: number;
+  user?: UserDetails;
+  setUser?: React.Dispatch<React.SetStateAction<UserDetails | undefined>>;
+};
 
 export type Paginate = {
   setOffset:React.Dispatch<React.SetStateAction<number>>;
@@ -181,3 +183,7 @@ export type AdminDetails = {
   admin: boolean;
   role: string;
 };
+
+export type Error = {
+  message:string;
+}

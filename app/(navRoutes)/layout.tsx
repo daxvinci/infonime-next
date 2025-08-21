@@ -1,8 +1,10 @@
 "use client";
 
+import { useEffect } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { useThemeContext } from "../ThemeContext";
+import axios from "axios";
 
 
 export default function DashboardLayout({
@@ -10,7 +12,36 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const {darkmode} = useThemeContext()
+  
+  const {darkmode,setUser=()=>{}} = useThemeContext()
+
+            useEffect(() => {
+
+              async function fetchUser() {
+                try{
+                  const token = localStorage.getItem("Otoken");
+                  if (!token) {
+                    return;
+                  }
+                  const result = await axios.get("/api/user", {
+                    headers: { Authorization: `Bearer ${token}` },
+                    timeout: 20000,
+                  });
+                  const fetchedUser = result.data.user
+                  if(fetchedUser){
+                    setUser(fetchedUser)
+                  }else{
+                    console.log("user not fetched successfully")
+                  }
+  
+                }catch(err:any){
+                  console.log("something wrong --> " + err?.message)
+                }
+                
+              }
+
+              fetchUser()
+            },[])
   
   return (
     <>

@@ -1,10 +1,10 @@
 "use client"
 
 import { useContext,createContext } from "react";
-import { Bool } from "./lib/types";
+import { ContextType } from "./lib/types";
 
 
-export const ThemeContext = createContext<Bool | null>(null)
+export const ThemeContext = createContext<ContextType | null>(null)
 
 
 export const useThemeContext =()=>{

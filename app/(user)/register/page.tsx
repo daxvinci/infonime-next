@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const AdminRegister = () => {
+const UserRegister = () => {
   const router = useRouter();
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
+    username: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -30,21 +30,23 @@ const AdminRegister = () => {
       return;
     }
     try {
-      const response = await axios.post("/api/adminRegister", form, {
+      const response = await axios.post("/api/auth/register", form, {
         timeout: 20000,
       });
       if (response.data.success) {
-        localStorage.setItem("token", response.data.token);
-        router.push("/adminDashboard");
+        localStorage.setItem("Otoken", response.data.token);
+        router.push("/home");
       } else {
         alert("Registration failed!");
       }
       setIsLoading(false);
       console.log("Server response:", response.data);
-    } catch (error) {
+    } catch (error:any) {
       setIsLoading(false);
       if (axios.isAxiosError(error) && error.code === "ECONNABORTED") {
         alert("Request timed out. Please try again.");
+      }else{
+        alert("error:" + error?.response.data.message || error?.message);
       }
       console.error("Error registering admin:", error);
     }
@@ -66,19 +68,20 @@ const AdminRegister = () => {
             <form className="space-y-6" onSubmit={handleSubmit} method="POST">
               <div>
                 <label
-                  htmlFor="firstName"
+                  htmlFor="name"
                   className="block text-sm/6 font-medium text-black"
                 >
-                  firstName
+                  Name
                 </label>
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="firstName"
-                    id="firstName"
+                    name="name"
+                    id="name"
                     autoComplete="name"
-                    value={form.firstName}
+                    value={form.name}
                     onChange={handleChange}
+                    maxLength={50}
                     required
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
@@ -86,20 +89,21 @@ const AdminRegister = () => {
               </div>
               <div>
                 <label
-                  htmlFor="name"
+                  htmlFor="username"
                   className="block text-sm/6 font-medium text-black"
                 >
-                  lastName
+                  Username
                 </label>
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="lastName"
-                    id="lastName"
+                    name="username"
+                    id="username"
                     autoComplete="name"
-                    value={form.lastName}
+                    value={form.username}
                     onChange={handleChange}
                     required
+                    maxLength={30}
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
@@ -180,8 +184,8 @@ const AdminRegister = () => {
               </div>
               Already Registered?
               <Link
-                href="/adminLogin"
-                className="underline italic ml-4 decoration-indigo-600 text-white/80"
+                href="/login"
+                className="italic ml-4 text-blue-500"
               >
                 Log in
               </Link>
@@ -193,4 +197,4 @@ const AdminRegister = () => {
   );
 };
 
-export default AdminRegister;
+export default UserRegister;

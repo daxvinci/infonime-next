@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const AdminLogin = () => {
+const UserLogin = () => {
   const router = useRouter();
   const [form, setForm] = useState({
     email: "",
@@ -21,20 +21,23 @@ const AdminLogin = () => {
     setIsLoading(true);
     e.preventDefault();
     try {
-      const response = await axios.post("/api/adminLogin", form, {
+      const response = await axios.post("/api/auth/login", form, {
         timeout: 20000,
       });
       if (response.data.success) {
-        localStorage.setItem("token", response.data.token);
-        router.push("/adminDashboard");
+        localStorage.setItem("Otoken", response.data.token);
+        router.push("/home");
       }
       // alert(response.data.message);
       setIsLoading(false);
       // console.log("Server response:", response.data);
-    } catch (error) {
+    } catch (error:any) {
       setIsLoading(false);
       if (axios.isAxiosError(error) && error.code === "ECONNABORTED") {
         alert("Request timed out. Please try again.");
+      }else{
+        console.log(error)
+        alert("Error: " + (error?.response.data.message || error?.message))
       }
       // console.error("Error Logging admin:", error);
     }
@@ -84,7 +87,7 @@ const AdminLogin = () => {
                 <div className="text-sm">
                   <a
                     href="#"
-                    className="font-semibold text-gray-600 hover:text-blue-600"
+                    className="font-semibold text-gray-500 hover:text-blue-600"
                   >
                     Forgot password?
                   </a>
@@ -118,11 +121,11 @@ const AdminLogin = () => {
               </button>
             </div>
           </form>
-          <div className="my-4">Don't have an account?<Link href="/register" className="text-blue-500 ml-2">Register</Link></div>
+          <div className="my-4">Don't have an account?<Link href="/register" className="text-blue-500 italic ml-2">Register</Link></div>
         </div>
       </div>
     </>
   );
 };
 
-export default AdminLogin;
+export default UserLogin;

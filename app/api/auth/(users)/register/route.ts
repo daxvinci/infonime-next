@@ -10,8 +10,8 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
   const {
     name,
-    email,
     username,
+    email,
     password,
   } = body;
   const saltRounds = 10;
