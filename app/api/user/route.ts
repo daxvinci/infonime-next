@@ -79,7 +79,7 @@ export async function PATCH(req: NextRequest) {
       { new: true }
     );
 
-    if (!updatedUser) {g
+    if (!updatedUser) {
       return NextResponse.json({ message: "User not found" }, { status: 404 });
     }
 
